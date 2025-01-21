@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar-main">
+        <ul class="main-content-navbar">
+            <li class="container-side-nav">
+                <a href="#" class="logo-navbar">
+                    Sakit <span class="nav-logo-color">
+                        Doc
+                    </span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="doctor-tops.html" class="button-contact">
+                    Sakit <span class="">
+                        Doc
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-section-container">
+            <div class="hero-item active">
+                <h3>Call Doctor</h3>
+                <p>Quick Consult via Call</p>
+            </div>
+            <div class="hero-item">
+                <h3>Book Appointment</h3>
+                <p>Long established fact that</p>
+            </div>
+            <div class="hero-item">
+                <h3>Quick Health Checkup</h3>
+                <p>Contrary to popular belief</p>
+            </div>
+        </div>
+        <img class="img-hero-section" src="/src/img/hero-image.png" alt="Hero Image">
+    </section>
+
+
+    <section class="quick-consult">
+        <h2>
+            Quick <span class="highlight">Consult For</span>
+        </h2>
+        <div class="consult-options">
+            <div class="option">
+                <div class="icon">
+                    <img src="src/icon/Heart.svg" width="20" height="20" alt="">
+                </div>
+                <p>Heart</p>
+            </div>
+            <div class="option">
+                <div class="icon">
+                    <img src="src/icon/asthma.svg" width="20" height="20" alt="">
+                </div>
+                <p>Asthma</p>
+            </div>
+            <div class="option">
+                <div class="icon">
+                    <img src="src/icon/lungs.svg" width="20" height="20" alt="">
+                </div>
+                <p>Lungs</p>
+            </div>
+            <div class="option">
+                <div class="icon">
+                    <img src="src/icon/oxygen.svg" width="20" height="20" alt="">
+                </div>
+                <p>Oxygen</p>
+            </div>
+            <div class="option">
+                <div class="icon">
+                    <img src="src/icon/diabetics.svg" width="20" height="20" alt="">
+                </div>
+                <p>Diabetics</p>
+            </div>
+            <div class="option">
+                <div class="icon">
+                    <img src="src/icon/prescribe.svg" width="20" height="20" alt="">
+                </div>
+                <p>Prescribe</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="shop-section">
+        <div class="shop-container">
+            <h2 class="shop-title">
+                Shop for <span class="highlight">Medicines & Wellness</span> <span class="icon">🛒</span>
+            </h2>
+            <p class="shop-description">Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
+            <div class="slider">
+                <button class="slider-btn prev-btn hidden">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="slider-wrapper">
+                    <div class="slider-track">
+                        <div class="shop-item">
+                            <img src="src/img/shop-page/vitamins.png" alt="Vitamins" />
+                            <p>Vitamins</p>
+                        </div>
+                        <div class="shop-item">
+                            <img src="src/img/shop-page/nutrisions.png" alt="Nutritional Drink" />
+                            <p>Nutritional Drink</p>
+                        </div>
+                        <div class="shop-item">
+                            <img src="src/img/shop-page/skin-care.png" alt="Skin Care" />
+                            <p>Skin Care</p>
+                        </div>
+                        <div class="shop-item">
+                            <img src="src/img/shop-page/wileness.png" alt="Wellness" />
+                            <p>Wellness</p>
+                        </div>
+                        <div class="shop-item">
+                            <img src="src/img/shop-page/sexual wileness.png" alt="Sexual Wellness" />
+                            <p>Sexual Wellness</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-btn next-btn">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            <a href="#" class="view-all">View All</a>
+        </div>
+    </section>
+
+    <section class="qna-section">
+        <h2>Ask SakitDoc</h2>
+        <div class="qna-container">
+            <select id="question-select">
+                <option value="" disabled selected>Select a question</option>
+                <option value="1">What is SakitDoc?</option>
+                <option value="2">How can I book an appointment?</option>
+                <option value="3">What services does SakitDoc provide?</option>
+                <option value="4">How do I contact a doctor?</option>
+            </select>
+            <button id="get-answer-btn">Get Answer</button>
+            <div id="answer-display" class="answer-display"></div>
+        </div>
+    </section>
+    
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>SakitDoc</h3>
+                <p>
+                    Health care refers to the efforts that medical professionals make to restore our physical and mental
+                    well-being. The term also includes the provision of services to maintain emotional well-being. We
+                    call people and organizations that provide these services ‘health-care providers’.
+                </p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Overview</h4>
+                    <ul>
+                        <li><a href="#">Medicines</a></li>
+                        <li><a href="#">Healthcare Devices</a></li>
+                        <li><a href="#">Health Progress</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#">Blogs & Feeds</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Social Media</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright @ SakitDoc 2024</p>
+        </div>
+    </footer>
+
+
+    <script src="src/js/index.js"></script>
+</body>
+
+</html>

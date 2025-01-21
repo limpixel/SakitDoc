@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Consultation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9fcff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #00296b;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 12px;
+        }
+
+        table th {
+            background-color: #00296b;
+            color: #fff;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #f1f9ff;
+        }
+
+        .empty-message {
+            text-align: center;
+            color: #888;
+            font-size: 16px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .back-button {
+            background-color: #6c63ff;
+        }
+
+        .clear-button {
+            background-color: #ff6c6c;
+        }
+    </style>
+
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar-main">
+        <ul class="main-content-navbar">
+            <li class="container-side-nav">
+                <a href="/" class="logo-navbar">
+                    Sakit <span class="nav-logo-color">Doc</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="" class="button-contact">
+                    Sakit <span>Doc</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>History Consultation</h1>
+        <div id="formDataContainer"></div>
+        <div class="button-group">
+            <button class="button back-button" onclick="goBack()">Back to Form</button>
+            <button class="button clear-button" onclick="clearData()">Clear Data</button>
+        </div>
+    </div>
+
+    <script>
+        // Ambil data dari localStorage
+        const formData = JSON.parse(localStorage.getItem("formData"));
+
+        const container = document.getElementById("formDataContainer");
+
+        if (formData) {
+            container.innerHTML = `
+                <table>
+                    <tr>
+                        <th>Field</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Nama Lengkap</td>
+                        <td>${formData.name}</td>
+                    </tr>
+                    <tr>
+                        <td>Nomor Rekam Medis</td>
+                        <td>${formData.medicalRecord}</td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Lahir</td>
+                        <td>${formData.birthDate}</td>
+                    </tr>
+                    <tr>
+                        
+                        <td>Dokter Spesialis</td>
+                        <td>${formData.typeDoctor}</td>
+                    </tr>
+                    <tr>
+                        <td>Dokter</td>
+                        <td>${formData.doctor}</td>
+                    </tr>
+                    <tr>
+                        <td>Rumah Sakit</td>
+                        <td>${formData.hospital}</td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Kelamin</td>
+                        <td>${formData.gender}</td>
+                    </tr>
+                </table>
+            `;
+        } else {
+            container.innerHTML = `<p class="empty-message">Tidak ada data konsultasi.</p>`;
+        }
+
+        // Fungsi untuk kembali ke halaman form
+        function goBack() {
+            window.location.href = "form-page.html";
+        }
+
+        // Fungsi untuk menghapus data dari localStorage
+        function clearData() {
+            localStorage.removeItem("formData");
+            alert("Data berhasil dihapus!");
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

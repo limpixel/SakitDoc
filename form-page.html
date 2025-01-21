@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="src/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9fcff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #00296b;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .calendar {
+            margin-top: 10px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cancel-button {
+            background-color: #ccc;
+        }
+
+        .next-button {
+            background-color: #6c63ff;
+        }
+
+        /* Toast Notification */
+        .toast {
+            visibility: hidden;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+        }
+
+        .toast.show {
+            visibility: visible;
+            animation: fadeInOut 4s;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0;
+            }
+
+            10%, 90% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar-main">
+        <ul class="main-content-navbar">
+            <li class="container-side-nav">
+                <a href="#" class="logo-navbar">
+                    Sakit <span class="nav-logo-color">Doc</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="button-contact">
+                    Sakit <span>Doc</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Form</h1>
+        <div class="form-group">
+            <label for="name">Nama Lengkap</label>
+            <input type="text" id="name" placeholder="Nama Lengkap">
+        </div>
+        <div class="form-group">
+            <label for="medicalRecord">Nomor Rekam Medis</label>
+            <input type="text" id="medicalRecord" placeholder="Nomor Rekam Medis">
+        </div>
+        <div class="form-group">
+            <label for="birthDate">Tanggal Lahir</label>
+            <input type="text" id="birthDate" class="calendar" placeholder="Tanggal Lahir">
+        </div>
+
+        <div class="form-group">
+            <label for="type-doctor">Pemilihan Dokter Spesialis</label>
+            <select id="type-doctor">
+                <option>Dokter Anak</option>
+                <option>Dokter THT</option>
+                <option>Dokter Mata</option>
+                <option>Dokter Saraf</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="doctor">Pemilihan Dokter</label>
+            <select id="doctor">
+                <option>Dokter Ihsan</option>
+                <option>Dokter San</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="hospital">Pemilihan Rumah Sakit</label>
+            <select id="hospital">
+                <option>Rasuna Said</option>
+                <option>Melinda Permai Hospital</option>
+                <option>Bunda Melia</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Jenis Kelamin</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gender" value="Laki-laki"> Laki-laki</label>
+                <label><input type="radio" name="gender" value="Perempuan"> Perempuan</label>
+            </div>
+        </div>
+        <div class="button-group">
+            <button class="button cancel-button">Cancel</button>
+            <!-- <button class="button next-button" onclick="showToast()">Next</button> -->
+            <!-- Tombol Next -->
+            <button class="button next-button" onclick="saveFormData()">Next</button>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">Submission Successful!</div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>SakitDoc</h3>
+                <p>
+                    Health care refers to the efforts that medical professionals make to restore our physical and mental
+                    well-being. The term also includes the provision of services to maintain emotional well-being. We
+                    call people and organizations that provide these services ‘health-care providers’.
+                </p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Overview</h4>
+                    <ul>
+                        <li><a href="#">Medicines</a></li>
+                        <li><a href="#">Healthcare Devices</a></li>
+                        <li><a href="#">Health Progress</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#">Blogs & Feeds</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Social Media</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright @ SakitDoc 2024</p>
+        </div>
+    </footer>
+
+    <script>
+        function saveFormData() {
+            // Ambil nilai input dari form
+            const name = document.getElementById("name").value.trim();
+            const medicalRecord = document.getElementById("medicalRecord").value.trim();
+            const birthDate = document.getElementById("birthDate").value.trim();
+            const typeDoctor = document.getElementById("type-doctor").value;
+            const doctor = document.getElementById("doctor").value;
+            const hospital = document.getElementById("hospital").value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value || "";
+    
+            // Validasi input
+            if (!name || !medicalRecord || !birthDate || !typeDoctor || !doctor || !hospital || !gender) {
+                alert("Harap isi semua kolom sebelum melanjutkan.");
+                return;
+            }
+    
+            // Simpan data ke localStorage
+            const formData = {
+                name,
+                medicalRecord,
+                birthDate,
+                typeDoctor,
+                doctor,
+                hospital,
+                gender,
+            };
+            localStorage.setItem("formData", JSON.stringify(formData));
+    
+            // Redirect ke halaman history-consultation.html
+            window.location.href = "history-consultation.html";
+        }
+    </script>
+    
+    
+    
+</body>
+
+</html>
